@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A modern, fast terminal code editor with LSP and IntelliSense support"
 authors = [{name = "VANTA Contributors"}]
 readme = "README.md"
-license = {text = "GPL-3.0"}
+license = {text = "GPL-3.0-only"}
 requires-python = ">=3.11"
 keywords = ["editor", "terminal", "lsp", "code", "intellisense"]
 classifiers = [
@@ -43,13 +43,31 @@ dev = [
 ]
 
 [project.scripts]
-vanta = "vanta.cli:main"
+vanta = "vanta.cli.main:main"
 
 [tool.setuptools]
-packages = ["vanta", "vanta.core", "vanta.buffer", "vanta.cursor", "vanta.commands", 
-            "vanta.keymap", "vanta.terminal", "vanta.syntax", "vanta.completion", 
-            "vanta.lsp", "vanta.diagnostics", "vanta.search", "vanta.undo", 
-            "vanta.plugins", "vanta.themes", "vanta.config", "vanta.ai", "vanta.ui"]
+packages = [
+    "vanta",
+    "vanta.core",
+    "vanta.buffer",
+    "vanta.cursor",
+    "vanta.commands",
+    "vanta.keymap",
+    "vanta.terminal",
+    "vanta.syntax",
+    "vanta.completion",
+    "vanta.lsp",
+    "vanta.diagnostics",
+    "vanta.search",
+    "vanta.undo",
+    "vanta.plugins",
+    "vanta.themes",
+    "vanta.config",
+    "vanta.ai",
+    "vanta.ui",
+    "vanta.cli",
+    "vanta.intellisense",
+]
 
 [tool.black]
 line-length = 100
