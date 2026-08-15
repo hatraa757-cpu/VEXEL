@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vanta-editor"
+version = "0.1.0"
+description = "A modern, fast terminal code editor with LSP and IntelliSense support"
+authors = [{name = "VANTA Contributors"}]
+readme = "README.md"
+license = {text = "GPL-3.0"}
+requires-python = ">=3.11"
+keywords = ["editor", "terminal", "lsp", "code", "intellisense"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Editors",
+]
+
+dependencies = [
+    "textual>=0.50.0",
+    "pygments>=2.16.0",
+    "pydantic>=2.0.0",
+    "tomli>=2.0.0",
+    "tomli-w>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.scripts]
+vanta = "vanta.cli:main"
+
+[tool.setuptools]
+packages = ["vanta", "vanta.core", "vanta.buffer", "vanta.cursor", "vanta.commands", 
+            "vanta.keymap", "vanta.terminal", "vanta.syntax", "vanta.completion", 
+            "vanta.lsp", "vanta.diagnostics", "vanta.search", "vanta.undo", 
+            "vanta.plugins", "vanta.themes", "vanta.config", "vanta.ai", "vanta.ui"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "W", "I", "N", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
